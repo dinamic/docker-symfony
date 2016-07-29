@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+    data:
+        image: "busybox"
+        volumes:
+            - "/var/lib/mysql"
+            - "../:/var/www/symfony"
+            - "./logs/php:/var/log/php7"
+            - "./logs/symfony:/var/www/symfony/app/logs"
+
+    db:
+        build: mysql/
+        ports:
+            - "3306"
+        volumes_from:
+            - "data"
+        environment:
+            MYSQL_ROOT_PASSWORD: nikola123
+            MYSQL_DATABASE: mydb
+            MYSQL_USER: nikola
+            MYSQL_PASSWORD: nikola123
+
+    php:
+        build: php-fpm/
+        ports:
+            - "9000"
+        volumes_from:
+            - "data"
+
+    nginx:
+        build: ./nginx
+        ports:
+            - "80"
+        links:
+            - php
+        volumes_from:
+            - "data"
+
+#    elk:
+#        image: willdurand/elk
+#        ports:
+#            - "81:80"
+#        volumes:
+#            - ./elk/logstash:/etc/logstash
+#            - ./elk/logstash/patterns:/opt/logstash/patterns
+#        volumes_from:
+#            - "data"
