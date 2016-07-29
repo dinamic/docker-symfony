@@ -11,5 +11,6 @@ DIR="$(dirname $0)"
 
 $DIR/bin/fix_permissions.sh
 $DIR/bin/composer_install.sh
+$DIR/bin/doctrine_migrations.sh
 $DIR/bin/grunt_build.sh
 $DIR/bin/bower_install.sh
