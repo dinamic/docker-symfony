@@ -23,3 +23,9 @@ docker-compose up
 ### Extra 
  
 Have a look at the `provision.sh` file and the `bin/` folder. 
+
+Examples:
+
+```
+docker/bin/phpunit.sh "--group 50436 --coverage-text --testdox"
+```
