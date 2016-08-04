@@ -29,3 +29,7 @@ Examples:
 ```
 docker/bin/phpunit.sh "--group 50436 --coverage-text --testdox"
 ```
+
+```
+docker/bin/console.sh "doctrine:schema:update --dump-sql"
+```
