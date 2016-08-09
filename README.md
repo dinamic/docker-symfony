@@ -5,6 +5,7 @@ Supports:
 - php:latest 
 - mysql:latest 
 - nginx:latest 
+- beanstalkd:latest
 - composer 
 - grunt 
 - bower 
