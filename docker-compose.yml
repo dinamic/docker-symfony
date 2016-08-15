@@ -22,7 +22,7 @@ services:
             MYSQL_PASSWORD: nikola123
 
     php:
-        build: php-fpm/
+        image: dinamic/docker-alpine-php7
         ports:
             - "9000"
         volumes_from:
